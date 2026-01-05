@@ -70,6 +70,11 @@
           - collectd
         state: present
 
+    - name: Remove default Nginx site
+      ansible.builtin.file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
     #
     # TODO: Consider checking for DNS resolution or adding record management with the DNS
     #   provider.
@@ -100,15 +105,6 @@
       args:
         creates: "/etc/letsencrypt/live/{{ hostname }}"
       ignore_errors: true
-
-    - name: Check if SSL certificate exists
-      ansible.builtin.stat:
-        path: "/etc/letsencrypt/live/{{ hostname }}/fullchain.pem"
-      register: ssl_cert
-
-    - name: Set SSL enabled flag
-      ansible.builtin.set_fact:
-        ssl_enabled: "{{ ssl_cert.stat.exists }}"
 
     - name: Create application user
       ansible.builtin.user:
