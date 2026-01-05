@@ -186,6 +186,11 @@
         src: saving-satoshi-backend.nginx.j2
         dest: /etc/nginx/sites-enabled/saving-satoshi-backend.conf
 
+    # Kill any stale nginx processes (certbot may have started them outside systemd)
+    - name: Stop any running nginx processes
+      ansible.builtin.shell: killall nginx || true
+      changed_when: false
+
     - name: Restart Nginx
       ansible.builtin.systemd:
         name: nginx
