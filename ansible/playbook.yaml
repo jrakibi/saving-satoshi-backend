@@ -182,6 +182,6 @@
 
     - name: Restart Nginx
       ansible.builtin.systemd:
-        name: saving-satoshi-backend
+        name: nginx
         enabled: true
         state: restarted
