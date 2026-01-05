@@ -140,10 +140,11 @@
       args:
         chdir: "{{ app_root }}"
 
-    - name: Run database migrations
-      command: yarn db:migrate:production
-      args:
-        chdir: "{{ app_root }}"
+    # TODO: db migrations disabled
+    # - name: Run database migrations
+    #   command: yarn db:migrate:production
+    #   args:
+    #     chdir: "{{ app_root }}"
 
     - name: Ensure dist and logs directory permissions
       ansible.builtin.file:
