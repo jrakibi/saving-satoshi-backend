@@ -69,7 +69,7 @@ module "github-oidc-provider" {
   source  = "terraform-module/github-oidc-provider/aws"
   version = "2.2.1"
 
-  repositories = ["saving-satoshi/saving-satoshi-backend"]
+  repositories = ["jrakibi/saving-satoshi-backend"]
   role_name    = "${local.namespace}-github-oidc"
 
   # TODO: Define least-privilege access for role policies.

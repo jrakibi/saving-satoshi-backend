@@ -112,7 +112,7 @@
 
     - name: Checkout application from Git
       ansible.builtin.git:
-        repo: https://github.com/saving-satoshi/saving-satoshi-backend.git
+        repo: https://github.com/jrakibi/saving-satoshi-backend.git
         dest: "{{ app_root }}"
         version: "{{ app_version }}"
 
