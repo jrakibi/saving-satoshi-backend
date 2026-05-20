@@ -132,7 +132,7 @@ resource "aws_launch_template" "app" {
   user_data = base64encode(templatefile("${path.module}/templates/user-data.sh", {
     ssm_prefix                = local.ssm_prefix
     app_version               = var.app_version
-    app_repo                  = "https://github.com/saving-satoshi/saving-satoshi-backend.git"
+    app_repo                  = "https://github.com/jrakibi/saving-satoshi-backend.git"
     app_port                  = var.app_port
     whitelist                 = var.whitelist
     max_script_execution_time = var.max_script_execution_time
